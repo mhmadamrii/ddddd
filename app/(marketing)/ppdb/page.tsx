@@ -1,14 +1,15 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { prisma } from '@/lib/prisma';
 
 import * as z from 'zod';
 
@@ -29,6 +30,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { createStudent } from '@/actions/student.action';
 
 const formSchema = z.object({
   nama: z.string().min(1).min(1).max(200),
@@ -41,6 +43,8 @@ const formSchema = z.object({
 });
 
 export default function PPDB() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,17 +58,29 @@ export default function PPDB() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
     try {
-      console.log(values);
-      toast(
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(values, null, 2)}</code>
-        </pre>,
-      );
+      const newStudent = await createStudent({
+        name: values.nama,
+        email: 'testing@gmail.com',
+        fatherName: values.nama_ayah,
+        motherName: values.nama_ibu,
+        noKK: values.no_kk,
+        gender: values.jenis_kelamin,
+        ttl: values.ttl,
+        address: values.address,
+      });
+
+      if (newStudent) {
+        toast.success('Data berhasil disimpan');
+        form.reset();
+      }
     } catch (error) {
       console.error('Form submission error', error);
       toast.error('Failed to submit the form. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -244,7 +260,9 @@ export default function PPDB() {
                   />
                 </div>
                 <div className='flex justify-end'>
-                  <Button className='w-full sm:w-[100px]'>Daftar</Button>
+                  <Button disabled={isLoading} className='w-full sm:w-[100px]'>
+                    {isLoading ? 'Loading...' : 'Daftar'}
+                  </Button>
                 </div>
               </div>
             </form>
