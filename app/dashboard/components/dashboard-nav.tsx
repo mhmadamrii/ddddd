@@ -116,6 +116,10 @@ export function DashboardNav() {
         </Link>
         <div className='hidden md:flex md:flex-1 md:items-center md:gap-4 md:px-4'>
           <nav className='flex items-center space-x-4 lg:space-x-6'>
+            <Link href='/' className='flex items-center gap-2 font-semibold'>
+              <GraduationCap className='h-6 w-6' />
+              <span>Darul Qurro</span>
+            </Link>
             {routes.map((route) => (
               <Link
                 key={route.href}

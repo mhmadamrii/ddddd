@@ -57,7 +57,7 @@ export default function LandingPage() {
                   </p>
                 </div>
                 <div className='flex flex-col gap-2 min-[400px]:flex-row'>
-                  <Link href='/dashboard'>
+                  <Link href='/ppdb'>
                     <Button size='lg' className='gap-1.5'>
                       Daftar Sekarang
                       <ArrowRight className='h-4 w-4' />
