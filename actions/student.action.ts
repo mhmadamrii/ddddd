@@ -1,7 +1,6 @@
 'use server';
 
 import { prisma } from '@/lib/prisma';
-import { Student } from '@/lib/generated/prisma';
 
 export const action = async (req: Request) => {
   const { id } = await req.json();
@@ -56,6 +55,30 @@ export async function createStudent({
       },
     });
     return newStudent;
+  } catch (error) {
+    console.log('error', error);
+  }
+}
+
+export async function uploadUrl({ imageUrl }: { imageUrl: string }) {
+  try {
+    const newImage = await prisma.images.create({
+      data: {
+        url: imageUrl,
+      },
+    });
+    return newImage;
+  } catch (error) {
+    console.log('error', error);
+  }
+}
+
+export async function getDQImages() {
+  try {
+    const images = await prisma.images.findMany();
+    if (images) {
+      return images.map((image) => image.url);
+    }
   } catch (error) {
     console.log('error', error);
   }

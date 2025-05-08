@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { createStudent } from '@/actions/student.action';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
@@ -29,7 +30,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { createStudent } from '@/actions/student.action';
 
 const formSchema = z.object({
   nama: z.string().min(1).min(1).max(200),
