@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Image from 'next/image';
 import { DialogCloseButton } from '@/components/upload-image';
 import { getDQImages } from '@/actions/student.action';
@@ -15,6 +17,7 @@ const imageUrls = [
 
 async function WithImages() {
   const res: string[] = (await getDQImages()) ?? [];
+  console.log('res', res);
   return (
     <>
       {[...imageUrls, ...res].map((url, index) => (
