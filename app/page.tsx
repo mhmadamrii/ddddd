@@ -1,52 +1,15 @@
 import Link from 'next/link';
-import {
-  GraduationCap,
-  Users,
-  BookOpen,
-  BarChart3,
-  ArrowRight,
-} from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DialogLogin } from '@/components/dialog-login';
+import { GraduationCap, Users, BookOpen, BarChart3 } from 'lucide-react';
 
 export default function LandingPage() {
   return (
     <div className='flex flex-col min-h-screen'>
-      <header className='px-4 lg:px-6 h-16 flex items-center border-b'>
-        <Link href='/' className='flex items-center gap-2 font-semibold'>
-          <GraduationCap className='h-6 w-6' />
-          <span>Darul Qurro</span>
-        </Link>
-        <nav className='ml-auto flex gap-4 sm:gap-6'>
-          <Link
-            href='#features'
-            className='text-sm font-medium hover:underline underline-offset-4'
-          >
-            Features
-          </Link>
-          <Link
-            href='#about'
-            className='text-sm font-medium hover:underline underline-offset-4'
-          >
-            About
-          </Link>
-          <Link
-            href='#contact'
-            className='text-sm font-medium hover:underline underline-offset-4'
-          >
-            Contact
-          </Link>
-          <Link
-            href='/dashboard'
-            className='text-sm font-medium hover:underline underline-offset-4'
-          >
-            Dashboard
-          </Link>
-        </nav>
-      </header>
       <main className='flex-1'>
-        <section className='w-full py-12 md:py-24 lg:py-32 xl:py-48'>
-          <div className='container px-4 md:px-6'>
-            <div className='grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2'>
+        <section className='w-full py-5 h-[500px] px-3'>
+          <div className='container h-full px-4 md:px-6'>
+            <div className='flex justify-between h-full items-center flex-col sm:flex-row p-5'>
               <div className='flex flex-col justify-center space-y-4'>
                 <div className='space-y-2'>
                   <h1 className='text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'>
@@ -57,12 +20,6 @@ export default function LandingPage() {
                   </p>
                 </div>
                 <div className='flex flex-col gap-2 min-[400px]:flex-row'>
-                  <Link href='/ppdb'>
-                    <Button size='lg' className='gap-1.5'>
-                      Daftar Sekarang
-                      <ArrowRight className='h-4 w-4' />
-                    </Button>
-                  </Link>
                   <Link href='#features'>
                     <Button size='lg' variant='outline'>
                       Cara Daftar
@@ -70,7 +27,7 @@ export default function LandingPage() {
                   </Link>
                 </div>
               </div>
-              <div className='flex items-center justify-center'>
+              <div className='flex items-center justify-center w-[80%]'>
                 <img
                   alt='Educational Management Dashboard'
                   className='aspect-video overflow-hidden rounded-xl object-cover object-center'
@@ -87,18 +44,16 @@ export default function LandingPage() {
           <div className='container px-4 md:px-6'>
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
-                <div className='inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground'>
-                  Key Features
-                </div>
                 <h2 className='text-3xl font-bold tracking-tighter md:text-4xl/tight'>
-                  Everything you need to manage your institution
+                  Profil Singkat Pondok Pesantren Darul Qurro
                 </h2>
                 <p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  Di Darul Qurro, kami percaya bahwa perbedaan adalah kekayaan.
-                  Dengan moto "Berdiri di atas dan untuk semua golongan", kami
-                  tidak berpihak pada satu kelompok atau mazhab, melainkan
-                  menjadi jembatan bagi seluruh elemen umat yang haus akan ilmu
-                  dan kasih sayang.
+                  PONDOK PESANTREN DARUL QURRO KAWUNGANTEN adalah sebuah lembaga
+                  Pendidikan Islam yang. telah diwakafkan sebagai wadah
+                  kaderisasi ummat Islam. Dalam kiprahnya, Pondok Pesantren
+                  Darul Qurro sangat menjunjung tinggi keluhuran agama dan
+                  nilai-nilai ke-Islaman, dalam rangka menegakkan kalimat Allah
+                  SWT.
                 </p>
               </div>
             </div>

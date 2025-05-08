@@ -9,7 +9,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { prisma } from '@/lib/prisma';
 
 import * as z from 'zod';
 

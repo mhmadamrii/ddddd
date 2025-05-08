@@ -1,4 +1,11 @@
 import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
+import { DashboardHeader } from '@/app/dashboard/components/dashboard-header';
+import { DashboardShell } from '@/app/dashboard/components/dashboard-shell';
+import { Overview } from '@/app/dashboard/components/overview';
+import { RecentStudents } from '@/app/dashboard/components/recent-students';
+
 import {
   Card,
   CardContent,
@@ -6,6 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+
 import {
   GraduationCap,
   Users,
@@ -14,11 +22,6 @@ import {
   UserPlus,
   BookPlus,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { DashboardHeader } from '@/app/dashboard/components/dashboard-header';
-import { DashboardShell } from '@/app/dashboard/components/dashboard-shell';
-import { Overview } from '@/app/dashboard/components/overview';
-import { RecentStudents } from '@/app/dashboard/components/recent-students';
 
 export default function DashboardPage() {
   return (
